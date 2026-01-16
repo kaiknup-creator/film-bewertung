@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Film Bewertung</title>
 
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 16px;
+    }
+    h1 { text-align: center; }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    label { font-weight: 600; }
+    input[type=range] { width: 100%; }
+    .score {
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: center;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎬 Film Bewertung</h1>
+
+<div class="card">
+  <label>Filmname</label>
+  <input id="filmname" placeholder="Film eingeben" style="width:100%;padding:8px">
+
+  <div id="ratings"></div>
+
+  <p class="score">Gesamt: <span id="total">–</span> / 10</p>
+
+  <button onclick="saveFilm()">💾 Speichern</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
