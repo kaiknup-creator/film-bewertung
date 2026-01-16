@@ -1,58 +1,55 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Film Bewertung</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Film & Serien Bewertung</title>
 
-  <link rel="manifest" href="manifest.json">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
 
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      margin: 16px;
-    }
-    h1 { text-align: center; }
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 16px;
-      margin-bottom: 16px;
-    }
-    label { font-weight: 600; }
-    input[type=range] { width: 100%; }
-    .score {
-      font-size: 1.2em;
-      font-weight: bold;
-      text-align: center;
-    }
-    button {
-      width: 100%;
-      padding: 14px;
-      font-size: 16px;
-      border-radius: 10px;
-      border: none;
-      background: #4CAF50;
-      color: white;
-    }
-  </style>
+<style>
+body { font-family: -apple-system; margin: 16px; }
+h1, h2 { text-align: center; }
+.card { border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+input, select { width: 100%; padding: 8px; margin-bottom: 10px; }
+input[type=range] { width: 100%; }
+button { padding: 12px; width: 100%; border: none; border-radius: 10px; background: #4CAF50; color: white; font-size: 16px; }
+.delete { background: #d9534f; margin-top: 8px; }
+.score { font-size: 18px; font-weight: bold; text-align: center; }
+
+.green { color: green; }
+.yellow { color: orange; }
+.red { color: red; }
+</style>
 </head>
+
 <body>
 
-<h1>🎬 Film Bewertung</h1>
+<h1>🎬 Bewertung</h1>
 
 <div class="card">
-  <label>Filmname</label>
-  <input id="filmname" placeholder="Film eingeben" style="width:100%;padding:8px">
+<select id="type">
+  <option value="Film">Film</option>
+  <option value="Serie">Serie</option>
+</select>
 
-  <div id="ratings"></div>
+<input id="title" placeholder="Titel">
 
-  <p class="score">Gesamt: <span id="total">–</span> / 10</p>
+<input id="season" placeholder="Staffel (optional)">
+<input id="episode" placeholder="Episode (optional)">
 
-  <button onclick="saveFilm()">💾 Speichern</button>
+<div id="ratings"></div>
+
+<p class="score">Gesamt: <span id="total">–</span> / 10</p>
+
+<button onclick="save()">💾 Speichern</button>
 </div>
+
+<h2>🏆 Ranking</h2>
+<div id="list"></div>
+
+<button onclick="exportExcel()">📤 Excel Export</button>
 
 <script src="app.js"></script>
 </body>
